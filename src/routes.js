@@ -1,4 +1,3 @@
-import Promocion from "./Mains/Promocion";
 import PantallaPromocion from "./Pantallas/PromocionesP";
 
 export const rutas = [
