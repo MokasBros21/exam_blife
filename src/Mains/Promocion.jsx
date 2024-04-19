@@ -9,8 +9,12 @@ import { Box, Card, Rating, Button, IconButton } from '@mui/material';
 import { Circle, FacebookRounded } from '@mui/icons-material';
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
 import { useState } from 'react';
+import { useContext } from 'react'
+import { TotalContext } from '../Layout/Counter'
 
 const Promocion = () => {
+    const {cambiarTotal} = useContext(TotalContext)
+
     const cambiarfoto = (dot) => {
         switch (dot) {
             case 1:
@@ -121,7 +125,7 @@ const Promocion = () => {
                     </div>
                     <Button variant='outlined' sx={{mt:1, textTransform:'none', borderRadius:"20px",
                     backgroundColor:"#FFFFFF", border:"1px solid #EDA836"}}
-                    >
+                    onClick={() => cambiarTotal(1)}>
                         <label style={styleLabelButton}>Agregar</label></Button>
                 </Box>
             </Box>

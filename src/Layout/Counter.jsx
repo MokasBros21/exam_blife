@@ -1,11 +1,17 @@
-let total = 2; // Inicializamos el total
+import React, { useState } from 'react';
 
-const incrementTotal = () => {
-    total++;
+export const TotalContext = React.createContext();
+
+export const TotalProvider = ({ children }) => {
+    const [total, setTotal] = useState(2);
+
+    const cambiarTotal = (valor) => {
+        setTotal((prevVariable) => prevVariable + valor);
+    };
+
+    return (
+        <TotalContext.Provider value={{ total, cambiarTotal }}>
+            {children}
+        </TotalContext.Provider>
+    );
 };
-
-const decrementTotal = () => {
-    total--;
-};
-
-export { total, incrementTotal, decrementTotal };

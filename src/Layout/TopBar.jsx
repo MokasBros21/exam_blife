@@ -8,8 +8,12 @@ import { Box, Badge, Chip } from '@mui/material';
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
+import React, { useContext } from 'react';
+import { TotalContext } from './Counter';
+
 const TopBar = () => {
 
+    const { total } = useContext(TotalContext);
     const [menuselect, setmenuselect] = useState("Promociones")
 
     const Navigate = useNavigate()
@@ -50,7 +54,7 @@ const TopBar = () => {
             <div style={{display:"flex", justifyContent:"space-evenly", width:"10%"}}>
                 <SearchRoundedIcon />
                 <AccountCircleOutlinedIcon />
-                <Badge badgeContent={2} color="error" sx={{ fontSize:"small" }}>
+                <Badge badgeContent={total} color="error" sx={{ fontSize:"small" }}>
                     <ShoppingBagOutlinedIcon />
                 </Badge>
             </div>
