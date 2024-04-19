@@ -63,26 +63,26 @@ const Promocion = () => {
         return (
             <div style={{width:"21%"}}>
             <Box sx={{borderRadius:"24px", border:"0.1px solid #E1E1E1", position:"relative", zIndex:1, backgroundColor:"#FFFFFF"}}>
-                <div style={{display:"flex", justifyContent:"center", paddingTop:10, marginBottom:-60}}>
+                <div style={{display:"flex", justifyContent:"center", paddingTop:10, marginBottom:30}}>
                     <img src={cambiarfoto(opcionfoto)} alt='Producto' width={"96%"} style={{borderRadius:"10px"}}/>
                 </div>
 
-                <Box sx={{position:"relative", left:200, border:"1px solid #E1E1E1", width:"52px", p:0.5,
+                <Box sx={{position:"absolute", left:"calc(100% - 45px)", border:"1px solid #E1E1E1", width:"52px", p:0.5,
                 backgroundColor:"#FFFFFF", display:"flex", justifyContent:"space-evenly", borderRadius:"20px",
-                alignItems:"center", bottom:155}}>
+                alignItems:"center", bottom:"83%"}}>
                     <FavoriteBorderRoundedIcon style={{color:"#FF8E8E", fontSize:"15px"}} />
                     <label style={styleLabelChip}>22</label>
                 </Box>
                 
-                <Box sx={{position:"relative", left:207, border:"1px solid #E1E1E1", width:"48px", p:0.4,
+                <Box sx={{position:"absolute", left:"calc(100% - 40px)", border:"1px solid #E1E1E1", width:"48px", p:0.4,
                 backgroundColor:"#FF8E8E", display:"flex", justifyContent:"space-evenly", borderRadius:"20px",
-                alignItems:"center", bottom:150}}>
+                alignItems:"center", bottom:"73%"}}>
                     <label style={{...styleLabelChip, color:"white"}}>-30%</label>
                 </Box>
 
-                <Box sx={{position:"relative", left:79, border:"1px solid #E1E1E1", width:"80px", px:1.5, py:0.7,
+                <Box sx={{position:"absolute", left:79, border:"1px solid #E1E1E1", width:"80px", px:1.5, py:0.7,
                 backgroundColor:"#FFFFFF", display:"flex", justifyContent:"space-between", borderRadius:"20px",
-                alignItems:"center", bottom:25}}>
+                alignItems:"center", bottom:"30%"}}>
                     <IconButton onClick={() => setopcionfoto(1)} size='small' disabled={opcionfoto === 1}>
                         <Circle style={{fontSize:"9px", color:opcionfoto === 1 ? "black" : "#D7DBDD"}}/>
                     </IconButton>
