@@ -2,7 +2,7 @@ import './App.css';
 import 'semantic-ui-css/semantic.min.css'
 
 import {
-	Routes, Route, BrowserRouter, Navigate
+	Routes, Route, HashRouter, Navigate
 } from "react-router-dom";
 
 import { rutas } from './routes';
@@ -10,7 +10,7 @@ import { rutas } from './routes';
 function App() {
 	//Algo
 	return (
-		<BrowserRouter>
+		<HashRouter>
 			<Routes>
 				<Route
 					path="/"
@@ -31,7 +31,7 @@ function App() {
 
 				}
 			</Routes>
-	  </BrowserRouter>
+	  </HashRouter>
 	);
 }
 
