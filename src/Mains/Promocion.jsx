@@ -1,12 +1,31 @@
 import BannerMain from '../assets/banner_main.png'
 import Promo from '../assets/Promo_image.png'
 import Producto from '../assets/Product_1.png'
+import ProductoZoom from '../assets/Zoom_1.png'
+import Producto_2 from '../assets//Image_3.webp'
 
 import StarIcon from '@mui/icons-material/Star';
-import { Box, Card, Rating, Button } from '@mui/material';
-import { FacebookRounded } from '@mui/icons-material';
+import { Box, Card, Rating, Button, IconButton } from '@mui/material';
+import { Circle, FacebookRounded } from '@mui/icons-material';
+import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
+import { useState } from 'react';
 
 const Promocion = () => {
+    const cambiarfoto = (dot) => {
+        switch (dot) {
+            case 1:
+                return Producto
+        
+            case 2:
+                return ProductoZoom
+
+            case 3:
+                return Producto_2
+
+            default:
+                return Producto
+        }
+    }
     
     const styleLabel = {
         fontWeight:"bold",
@@ -22,25 +41,63 @@ const Promocion = () => {
         cursor:"pointer"
     }
 
+    const styleLabelChip = {
+        fontWeight:"bold",
+        fontSize:"12px",
+        fontFamily:"'Kumbh Sans', sans-serif",
+        color:"black",
+    }
+
     const styleLabelPequeño = {
         fontSize:"10px",
         fontFamily:"'Kumbh Sans', sans-serif"
     }
 
-    const CardCompleta = () => {
+    const CardCompleta = ({index}) => {
+        const [opcionfoto, setopcionfoto] = useState(1);
+
         return (
             <div style={{width:"21%"}}>
             <Box sx={{borderRadius:"24px", border:"0.1px solid #E1E1E1", position:"relative", zIndex:1, backgroundColor:"#FFFFFF"}}>
-                <img src={Producto} alt='Producto' width={"100%"} />
+                <div style={{display:"flex", justifyContent:"center", paddingTop:10, marginBottom:-60}}>
+                    <img src={cambiarfoto(opcionfoto)} alt='Producto' width={"96%"} style={{borderRadius:"10px"}}/>
+                </div>
+
+                <Box sx={{position:"relative", left:200, border:"1px solid #E1E1E1", width:"52px", p:0.5,
+                backgroundColor:"#FFFFFF", display:"flex", justifyContent:"space-evenly", borderRadius:"20px",
+                alignItems:"center", bottom:155}}>
+                    <FavoriteBorderRoundedIcon style={{color:"#FF8E8E", fontSize:"15px"}} />
+                    <label style={styleLabelChip}>22</label>
+                </Box>
+                
+                <Box sx={{position:"relative", left:207, border:"1px solid #E1E1E1", width:"48px", p:0.4,
+                backgroundColor:"#FF8E8E", display:"flex", justifyContent:"space-evenly", borderRadius:"20px",
+                alignItems:"center", bottom:150}}>
+                    <label style={{...styleLabelChip, color:"white"}}>-30%</label>
+                </Box>
+
+                <Box sx={{position:"relative", left:79, border:"1px solid #E1E1E1", width:"80px", px:1.5, py:0.7,
+                backgroundColor:"#FFFFFF", display:"flex", justifyContent:"space-between", borderRadius:"20px",
+                alignItems:"center", bottom:25}}>
+                    <IconButton onClick={() => setopcionfoto(1)} size='small' disabled={opcionfoto === 1}>
+                        <Circle style={{fontSize:"9px", color:opcionfoto === 1 ? "black" : "#D7DBDD"}}/>
+                    </IconButton>
+                    <IconButton onClick={() => setopcionfoto(2)} size='small' disabled={opcionfoto === 2}>
+                        <Circle style={{fontSize:"9px", color:opcionfoto === 2 ? "black" : "#D7DBDD"}}/>
+                    </IconButton>
+                    <IconButton onClick={() => setopcionfoto(3)} size='small' disabled={opcionfoto === 3}>
+                        <Circle style={{fontSize:"9px", color:opcionfoto === 3 ? "black" : "#D7DBDD"}}/>
+                    </IconButton>
+                </Box>
 
                 <Box sx={{display:"flex", justifyContent:"space-between", px:"7%"}}>
                     <label style={styleLabel}>Citrate Mag</label>
-                    <label style={styleLabel}>$273.00</label>
+                    <label style={styleLabel}>$134.00</label>
                 </Box>
 
                 <Box sx={{display:"flex", justifyContent:"space-between", px:"7%", mt:0.3}}>
                     <label style={styleLabelPequeño}>240 Cápsulas | 800 Mg</label>
-                    <label style={{...styleLabelPequeño, textDecoration:"line-through"}}>$134.00</label>
+                    <label style={{...styleLabelPequeño, textDecoration:"line-through"}}>$273.00</label>
                 </Box>
 
                 <Rating value={3.5} precision={0.5} readOnly sx={{px:"7%", mt:1, fontSize:17}} 
@@ -63,7 +120,8 @@ const Promocion = () => {
                         </div>
                     </div>
                     <Button variant='outlined' sx={{mt:1, textTransform:'none', borderRadius:"20px",
-                    backgroundColor:"#FFFFFF", border:"1px solid #EDA836"}}>
+                    backgroundColor:"#FFFFFF", border:"1px solid #EDA836"}}
+                    >
                         <label style={styleLabelButton}>Agregar</label></Button>
                 </Box>
             </Box>
@@ -76,17 +134,14 @@ const Promocion = () => {
             <Box>
                 <img src={BannerMain} alt='Image Banner' width={"100%"} height={"100%"} />
                 <img src={Promo} alt='Image Promo' width={"32%"}
-                    style={{position:"absolute", right:"9%", top:"9%"}}
+                    style={{position:"absolute", right:"9%", top:"15%"}}
                 />
             </Box>
 
             <Box sx={{mt:5, p:8, display:"flex", justifyContent:"space-between"}}>
                 <CardCompleta />
-
                 <CardCompleta />
-
                 <CardCompleta />
-
                 <CardCompleta />
             </Box>
         </div>

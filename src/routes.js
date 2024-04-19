@@ -1,6 +1,7 @@
-import Promocion from "./Promociones/Promocion";
+import Promocion from "./Mains/Promocion";
+import PantallaPromocion from "./Pantallas/PromocionesP";
 
 export const rutas = [
-    { ruta: '/promocion', component: <Promocion /> },
-    { ruta: '/', component: <Promocion />}
+    { ruta: '/promocion', component: <PantallaPromocion /> },
+    { ruta: '/', component: <PantallaPromocion />}
 ];
